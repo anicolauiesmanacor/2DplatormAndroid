@@ -325,7 +325,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a55a53adf07d3c4e9e276cb82a380fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPS: {fileID: 5050825405880186520, guid: 9f4e3c7a9cdac8549967a02ed4e297c6, type: 3}
+  explosionPS: {fileID: 0}
   floorChecker: {fileID: 5408213541613948095}
+  respawnPoint: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

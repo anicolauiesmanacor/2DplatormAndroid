@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour{
     private Rigidbody2D rb;
     private Animator anim;
 
+    public ParticleSystem spawnPS;
+    public ParticleSystem explosionPS;
+
     public Transform floorChecker;
     public Transform respawnPoint;
 
@@ -38,8 +41,9 @@ public class PlayerController : MonoBehaviour{
         }
 
         if (IsDead()) {
-            Debug.Log("is dead!");
+            explosionPS.transform.position = transform.position;
             this.gameObject.SetActive(false);
+            explosionPS.Play();
             Invoke("PlayerDeath", 3);
         }
 
@@ -47,6 +51,7 @@ public class PlayerController : MonoBehaviour{
     }
 
     private void PlayerDeath() {
+        spawnPS.Play();
         this.gameObject.SetActive(true);
         transform.position = respawnPoint.transform.position;
     }
