@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Ground
   - Death
-  - 
+  - Clouds
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: clouds
+    uniqueID: 3940047005
+    locked: 0
+  - name: Middle
+    uniqueID: 3094862301
+    locked: 0
+  - name: Front
+    uniqueID: 707174293
+    locked: 0
+  - name: Player
+    uniqueID: 2555551377
     locked: 0
