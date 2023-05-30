@@ -14,11 +14,11 @@ TagManager:
   - Ground
   - Death
   - Clouds
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - Middleground
+  - Frontground
+  - Player
+  - HUD
   - 
   - 
   - 
@@ -38,18 +38,27 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3094862301
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: clouds
+  - name: Clouds
     uniqueID: 3940047005
     locked: 0
-  - name: Middle
-    uniqueID: 3094862301
-    locked: 0
-  - name: Front
+  - name: Middleground
     uniqueID: 707174293
     locked: 0
-  - name: Player
+  - name: Frontground
     uniqueID: 2555551377
+    locked: 0
+  - name: Ground
+    uniqueID: 3966344337
+    locked: 0
+  - name: Death
+    uniqueID: 3706923871
+    locked: 0
+  - name: Player
+    uniqueID: 1723686851
     locked: 0

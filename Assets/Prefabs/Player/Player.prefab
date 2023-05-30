@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5408213539942695359}
   - component: {fileID: 5408213539942695344}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Boca
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5408213539978125947}
   - component: {fileID: 5408213539978125948}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Nas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5408213540331579747}
   - component: {fileID: 5408213540331579748}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CamaDreta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,9 +238,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 1723686851
+  m_SortingLayer: 6
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1cfe2e4958fdb644d81b123485c3a91b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 5408213540438362928}
   - component: {fileID: 5408213540438362929}
   - component: {fileID: 5408213540438362930}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5408213540849483035}
   - component: {fileID: 5408213540849483036}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ulls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5408213540903637520}
   - component: {fileID: 5408213540903637521}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BracDre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,9 +621,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 1723686851
+  m_SortingLayer: 6
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: aecb81d66a8bef140b4a9319788b070c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -644,7 +644,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5408213540982653241}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5408213541410070214}
   - component: {fileID: 5408213541410070215}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -738,9 +738,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 1723686851
+  m_SortingLayer: 6
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0c4a5aa811d464641be75328beaa6820, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -762,7 +762,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5408213541448572771}
   - component: {fileID: 5408213541448572772}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CamaEsq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,9 +822,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1723686851
+  m_SortingLayer: 6
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: fedb2d4844675134c8a37567bc10f395, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -846,7 +846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5408213541450601367}
   - component: {fileID: 5408213541450601352}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -909,9 +909,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 1723686851
+  m_SortingLayer: 6
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c60e0ababf5833d46878a34971885868, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -933,7 +933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5408213541582279874}
   - component: {fileID: 5408213541582279875}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BracEsq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -993,8 +993,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1723686851
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: bd8616d140e95664d89c5e176cf41d20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1017,7 +1017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5408213541613948095}
   - component: {fileID: 5408213541613948080}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GrondCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1074,7 +1074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5408213541711837686}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bracos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

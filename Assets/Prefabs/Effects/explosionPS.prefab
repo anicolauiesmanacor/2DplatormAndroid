@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1719931131625129284}
   - component: {fileID: 1719931131625129286}
   - component: {fileID: 1719931131625129287}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ember
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4894,7 +4894,7 @@ GameObject:
   - component: {fileID: 4526869671093523491}
   - component: {fileID: 4526869671093523490}
   - component: {fileID: 6763450386417196968}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: explosionPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9925,7 +9925,7 @@ GameObject:
   - component: {fileID: 4441622075839976518}
   - component: {fileID: 2293629913595825267}
   - component: {fileID: 7032701899828362673}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14806,7 +14806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7951681494651213614}
   - component: {fileID: 83549048338362252}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14901,7 +14901,7 @@ GameObject:
   - component: {fileID: 5439530106308559815}
   - component: {fileID: 5439530106308559817}
   - component: {fileID: 5439530106308559814}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19603,7 +19603,7 @@ GameObject:
   - component: {fileID: 6980444471442937748}
   - component: {fileID: 5746472569461605671}
   - component: {fileID: 662694085332915686}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Small fire anim delay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
