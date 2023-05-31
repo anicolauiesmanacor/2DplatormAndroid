@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
-{
+public class CameraFollow : MonoBehaviour {
     public Transform target;                    // The player's transform
     [SerializeField] private float smoothSpeed; // The smoothing factor for camera movement
     public Vector3 offset;                      // The offset between the camera and the player
@@ -13,8 +12,7 @@ public class CameraFollow : MonoBehaviour
     private Vector3 desiredPosition;        // The desired position of the camera
     private bool shouldFollow = false;      // Flag to indicate if the camera should start following
 
-    private void LateUpdate()
-    {
+    private void LateUpdate() {
         if (target == null)
             return;
 
@@ -31,28 +29,22 @@ public class CameraFollow : MonoBehaviour
 
         // Check if the player is within the 75% threshold on both axes
         if (Mathf.Abs(desiredScreenPosition.x - Screen.width / 2) > screenWidthThreshold / 2 ||
-            Mathf.Abs(desiredScreenPosition.y - Screen.height / 2) > screenHeightThreshold / 2)
-        {
+            Mathf.Abs(desiredScreenPosition.y - Screen.height / 2) > screenHeightThreshold / 2) {
             // Start following after the specified delay
             if (!shouldFollow)
-            {
                 Invoke("StartFollowing", followDelay);
-            }
         }
 
         // Follow the player's position with some delay
-        if (shouldFollow)
-        {
+        if (shouldFollow && target.transform.position.y > 0) {
             // Add some delay by smoothly moving the camera towards the desired position
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-
             // Update the camera's position
             transform.position = smoothedPosition;
         }
     }
 
-    private void StartFollowing()
-    {
+    private void StartFollowing() {
         shouldFollow = true;
     }
 }
