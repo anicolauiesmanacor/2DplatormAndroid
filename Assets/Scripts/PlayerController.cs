@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour{
     [SerializeField] private float speed;
     [SerializeField] private float jump;
     private bool isFacingRight = true;
+    public bool isJumping = false;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
@@ -106,10 +107,12 @@ public class PlayerController : MonoBehaviour{
     public void Jump(InputAction.CallbackContext context) {
         if (context.performed && IsGrounded()) {
             rb.velocity = new Vector2(rb.velocity.x, jump);
+            isJumping = true;
         }
 
         if (context.canceled && rb.velocity.y > 0f) {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            isJumping = false;
         }   
     }
 
