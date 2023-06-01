@@ -49,7 +49,8 @@ public class GameManager : MonoBehaviour {
             }
         } else if (natureTransition) {
             if (!isFlower) {
-                FadeOutRecursive(nature.transform);
+                nature.SetActive(true);
+                FadeInRecursive(nature.transform);
                 isFlower = true;
                 natureTransition = false;
             }
