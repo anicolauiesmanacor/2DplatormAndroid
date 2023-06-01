@@ -29,6 +29,7 @@ public class MovingPlatform : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player")) {
             playerParent = collision.transform.parent.gameObject;
             movingPlatform = true;
+            SoundManager.Instance.PlayMovingRockSound();
             platformOffset = collision.gameObject.transform.position - this.transform.position;
             collision.gameObject.transform.SetParent(transform);
         }
@@ -36,6 +37,7 @@ public class MovingPlatform : MonoBehaviour {
 
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
+            SoundManager.Instance.StopFXSound();
             // Reset the platform offset
             platformOffset = Vector3.zero;
             collision.gameObject.transform.SetParent(playerParent.transform);

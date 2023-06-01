@@ -59,14 +59,17 @@ public class PlayerController : MonoBehaviour{
 
     private void UpdateAnimations() {
         if (IsGrounded())
-            if (horizontal != 0)
+            if (horizontal != 0) {
+                SoundManager.Instance.PlayWalkingSound();
                 ChangeAnimatorState(1);
-            else
+                
+            } else
                 ChangeAnimatorState(0);
         else 
-            if (rb.velocity.y > 0f)
+            if (rb.velocity.y > 0f) {
+                SoundManager.Instance.PlayJumpSound();
                 ChangeAnimatorState(2);
-            else
+            } else
                 ChangeAnimatorState(3);
     }
 
@@ -102,10 +105,12 @@ public class PlayerController : MonoBehaviour{
 
     public void Move(InputAction.CallbackContext context) {
         horizontal = context.ReadValue<Vector2>().x;
+        //SoundManager.Instance.PlayWalkingSound();
     }
 
     public void Jump(InputAction.CallbackContext context) {
         if (context.performed && IsGrounded()) {
+            //SoundManager.Instance.PlayJumpSound();
             rb.velocity = new Vector2(rb.velocity.x, jump);
             isJumping = true;
         }
@@ -121,17 +126,7 @@ public class PlayerController : MonoBehaviour{
     }
 
     private bool IsDead() {
+        //SoundManager.Instance.PlayDieSound();
         return Physics2D.OverlapCircle(floorChecker.position, 0.9f, deathLayer);
     }
-
-/*
-    private void OnMove(InputValue inputValue) {
-        Debug.Log("Moving");
-    }
-
-    private void OnJump(InputValue inputValue) {
-        Debug.Log("Jump");
-    }
-*/
-
 }
