@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour{
-
+    private GameManager gameManager;
     private Rigidbody2D rb;
     private Animator anim;
 
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour{
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Start() {
@@ -33,22 +34,24 @@ public class PlayerController : MonoBehaviour{
     }
 
     private void Update() {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        if (gameManager.startGame) {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
-        if (!isFacingRight && horizontal > 0f) {
-            Flip();
-        } else if (isFacingRight && horizontal < 0f) {
-            Flip();
+            if (!isFacingRight && horizontal > 0f) {
+                Flip();
+            } else if (isFacingRight && horizontal < 0f) {
+                Flip();
+            }
+
+            if (IsDead()) {
+                explosionPS.transform.position = transform.position;
+                this.gameObject.SetActive(false);
+                explosionPS.Play();
+                Invoke("PlayerDeath", 3);
+            }
+
+            UpdateAnimations();
         }
-
-        if (IsDead()) {
-            explosionPS.transform.position = transform.position;
-            this.gameObject.SetActive(false);
-            explosionPS.Play();
-            Invoke("PlayerDeath", 3);
-        }
-
-        UpdateAnimations();
     }
 
     private void PlayerDeath() {
@@ -104,21 +107,24 @@ public class PlayerController : MonoBehaviour{
     }
 
     public void Move(InputAction.CallbackContext context) {
-        horizontal = context.ReadValue<Vector2>().x;
+        if (gameManager.startGame) 
+            horizontal = context.ReadValue<Vector2>().x;
         //SoundManager.Instance.PlayWalkingSound();
     }
 
     public void Jump(InputAction.CallbackContext context) {
-        if (context.performed && IsGrounded()) {
-            //SoundManager.Instance.PlayJumpSound();
-            rb.velocity = new Vector2(rb.velocity.x, jump);
-            isJumping = true;
-        }
+        if (gameManager.startGame) {
+            if (context.performed && IsGrounded()) {
+                //SoundManager.Instance.PlayJumpSound();
+                rb.velocity = new Vector2(rb.velocity.x, jump);
+                isJumping = true;
+            }
 
-        if (context.canceled && rb.velocity.y > 0f) {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-            isJumping = false;
-        }   
+            if (context.canceled && rb.velocity.y > 0f) {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+                isJumping = false;
+            }
+        }
     }
 
     private bool IsGrounded() {

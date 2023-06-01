@@ -59,7 +59,7 @@ public class SoundManager : MonoBehaviour {
         if (!isPickSoundPlaying) {
             isPickSoundPlaying = true;
             soundEffectSource.clip = pickSound;
-            ss
+            
             soundEffectSource.Play();
         }
     }

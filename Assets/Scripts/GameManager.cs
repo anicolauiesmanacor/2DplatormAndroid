@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    public bool startGame = false;
+
     public bool isGreen = false;
     public bool isBlue = false;
     public bool isFlower = false;
@@ -23,6 +25,11 @@ public class GameManager : MonoBehaviour {
 
     private bool natureTransition = false;
     [SerializeField] private GameObject nature;
+
+
+    void Start() {
+
+    }
 
     void Update() {
         if (groundTransition) {
