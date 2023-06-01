@@ -29,7 +29,15 @@ public class PlayerController : MonoBehaviour{
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
+    public const int ST_IDLE = 0;
+    public const int ST_WALK = 1;
+    public const int ST_JUMP = 2;
+    public const int ST_DIE = 3;
+    public int state;
+    public int prev_state;
+
     void Start() {
+        prev_state = state = ST_IDLE;
         ChangeAnimatorState(0);
     }
 
@@ -50,7 +58,27 @@ public class PlayerController : MonoBehaviour{
                 Invoke("PlayerDeath", 3);
             }
 
-            UpdateAnimations();
+            UpdatePlayerAnimationState();
+            PlayPlayerFX();
+        }
+    }
+
+    void PlayPlayerFX() {
+        if (prev_state != state) {
+            switch (state) {
+                case ST_IDLE:
+                    SoundManager.Instance.StopFXSound();
+                    break;
+                case ST_WALK:
+                    SoundManager.Instance.PlayWalkingSound();
+                    break;
+                case ST_JUMP:
+                    SoundManager.Instance.PlayJumpSound();
+                    break;
+                case ST_DIE:
+                    SoundManager.Instance.PlayDieSound();
+                    break;
+            }
         }
     }
 
@@ -60,20 +88,25 @@ public class PlayerController : MonoBehaviour{
         transform.position = respawnPoint.transform.position;
     }
 
-    private void UpdateAnimations() {
+    private void UpdatePlayerAnimationState() {
+        if (prev_state != state)
+            prev_state = state;
+
         if (IsGrounded())
             if (horizontal != 0) {
-                SoundManager.Instance.PlayWalkingSound();
+                state = ST_WALK;
                 ChangeAnimatorState(1);
-                
-            } else
+            } else {
+                state = ST_IDLE;
                 ChangeAnimatorState(0);
+            }
         else 
             if (rb.velocity.y > 0f) {
-                SoundManager.Instance.PlayJumpSound();
+                state = ST_JUMP;
                 ChangeAnimatorState(2);
-            } else
+            } else {
                 ChangeAnimatorState(3);
+            }
     }
 
     private void ChangeAnimatorState(int i) {
@@ -107,15 +140,13 @@ public class PlayerController : MonoBehaviour{
     }
 
     public void Move(InputAction.CallbackContext context) {
-        if (gameManager.startGame) 
+         if (gameManager.startGame) 
             horizontal = context.ReadValue<Vector2>().x;
-        //SoundManager.Instance.PlayWalkingSound();
     }
 
     public void Jump(InputAction.CallbackContext context) {
         if (gameManager.startGame) {
             if (context.performed && IsGrounded()) {
-                //SoundManager.Instance.PlayJumpSound();
                 rb.velocity = new Vector2(rb.velocity.x, jump);
                 isJumping = true;
             }
@@ -132,7 +163,6 @@ public class PlayerController : MonoBehaviour{
     }
 
     private bool IsDead() {
-        //SoundManager.Instance.PlayDieSound();
         return Physics2D.OverlapCircle(floorChecker.position, 0.9f, deathLayer);
     }
 }

@@ -26,11 +26,6 @@ public class GameManager : MonoBehaviour {
     private bool natureTransition = false;
     [SerializeField] private GameObject nature;
 
-
-    void Start() {
-
-    }
-
     void Update() {
         if (groundTransition) {
             if (!isGreen) {
@@ -44,6 +39,7 @@ public class GameManager : MonoBehaviour {
             if (!isBlue) {
                 FadeOutRecursive(skyGrey.transform);
                 skyBlue.SetActive(true);
+                skyBlue.transform.GetChild(0).transform.position = skyGrey.transform.GetChild(0).transform.position;
                 FadeInRecursive(skyBlue.transform);
                 isBlue = true;
                 skyTransition = false;

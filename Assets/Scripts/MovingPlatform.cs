@@ -29,7 +29,7 @@ public class MovingPlatform : MonoBehaviour {
         if (collision.gameObject.CompareTag("Player")) {
             playerParent = collision.transform.parent.gameObject;
             movingPlatform = true;
-            SoundManager.Instance.PlayMovingRockSound();
+            GetComponent<AudioSource>().Play();
             platformOffset = collision.gameObject.transform.position - this.transform.position;
             collision.gameObject.transform.SetParent(transform);
         }

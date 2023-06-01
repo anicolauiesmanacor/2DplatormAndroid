@@ -15,30 +15,31 @@ public class SoundManager : MonoBehaviour {
     public AudioClip respawnSound;
     public AudioClip movingRockSound;
 
-    private bool isJumpSoundPlaying;
-    private bool isPickSoundPlaying;
-    private bool isDieSoundPlaying;
-    private bool isWalkSoundPlaying;
-    private bool isAchieveSoundPlaying;
-    private bool isRespawnSoundPlaying;
-    private bool isMovingRockSoundPlaying;
-
     public AudioSource musicSource;
     public AudioSource soundEffectSource;
 
-    private void Awake() {
-        if (Instance == null) {
+      private void Awake()
+    {
+        if (Instance == null)
+        {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-        } else {
+        }
+        else
+        {
             Destroy(gameObject);
         }
+
         musicSource = gameObject.AddComponent<AudioSource>();
         soundEffectSource = gameObject.AddComponent<AudioSource>();
     }
 
     private void Start() {
         PlayBackgroundMusic();
+    }
+
+    private System.Collections.IEnumerator EffectCooldown(float duration) {
+        yield return new WaitForSeconds(duration);
     }
 
     public void PlayBackgroundMusic() {
@@ -48,63 +49,50 @@ public class SoundManager : MonoBehaviour {
     }
 
     public void PlayJumpSound() {
-        if (!isJumpSoundPlaying) {
-            isJumpSoundPlaying =true;
-            soundEffectSource.clip = jumpSound;
-            soundEffectSource.Play();
-        }
+        soundEffectSource.loop = false;
+        soundEffectSource.clip = jumpSound;
+        soundEffectSource.Play();
+        StartCoroutine(EffectCooldown(jumpSound.length));
     }
 
     public void PlayPickSound() {
-        if (!isPickSoundPlaying) {
-            isPickSoundPlaying = true;
-            soundEffectSource.clip = pickSound;
-            
-            soundEffectSource.Play();
-        }
+        soundEffectSource.clip = pickSound;
+        soundEffectSource.loop = false;
+        soundEffectSource.Play();
+        StartCoroutine(EffectCooldown(pickSound.length));
     }
 
     public void PlayDieSound() {
-        if (!isDieSoundPlaying) {
-            isDieSoundPlaying = true;
-            soundEffectSource.PlayOneShot(dieSound);
-        }
+        soundEffectSource.loop = false;
+        soundEffectSource.clip = dieSound;
+        soundEffectSource.Play();
+        StartCoroutine(EffectCooldown(dieSound.length));
     }
 
     public void PlayAchieveSound() {
-        if (!isAchieveSoundPlaying) {
-            isAchieveSoundPlaying = true;
-            soundEffectSource.PlayOneShot(achieveSound);
-        }
+        soundEffectSource.loop = false;
+        soundEffectSource.PlayOneShot(achieveSound);
     }
 
     public void PlayWalkingSound() {
-        if (!isWalkSoundPlaying) {
-            isWalkSoundPlaying = true;
-            soundEffectSource.loop = true;
-            soundEffectSource.PlayOneShot(walkSound);
-        }
+        soundEffectSource.loop = true;
+        soundEffectSource.clip = walkSound;
+        soundEffectSource.Play();
+
     }
 
     public void PlayRespawnSound() {
-        if (!isRespawnSoundPlaying) {
-            isRespawnSoundPlaying = true;
-            soundEffectSource.PlayOneShot(respawnSound);
-        }
+        soundEffectSource.loop = false;
+        soundEffectSource.PlayOneShot(respawnSound);
     }
 
     public void PlayMovingRockSound() {
-        if (!isMovingRockSoundPlaying) {
-            isMovingRockSoundPlaying = true;
-            soundEffectSource.loop = true;
-            soundEffectSource.PlayOneShot(movingRockSound);
-        }
+        soundEffectSource.loop = true;
+        soundEffectSource.PlayOneShot(movingRockSound);
     }
 
     public void StopFXSound() {
-        isAchieveSoundPlaying = isDieSoundPlaying =
-        isJumpSoundPlaying = isMovingRockSoundPlaying =
-        isPickSoundPlaying = isRespawnSoundPlaying = isWalkSoundPlaying = false;
-        soundEffectSource.Stop();
+        //soundEffectSource.Stop();
+        soundEffectSource.loop = false;
     }
 }

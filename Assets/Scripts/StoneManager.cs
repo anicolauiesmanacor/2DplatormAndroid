@@ -39,7 +39,7 @@ public class StoneManager : MonoBehaviour {
                 case 1:
                     if (!gmanager.isBlue) {
                         gmanager.MakeBlueSky();
-                        SoundManager.Instance.PlayJumpSound();
+                        SoundManager.Instance.PlayPickSound();
                         SoundManager.Instance.PlayAchieveSound();
                         Destroy(this.gameObject);
                     }
@@ -48,7 +48,7 @@ public class StoneManager : MonoBehaviour {
                 case 2:
                     if (!gmanager.isCloud) {
                         gmanager.GoAwayClouds();
-                        SoundManager.Instance.PlayJumpSound();
+                        SoundManager.Instance.PlayPickSound();
                         SoundManager.Instance.PlayAchieveSound();
                         Destroy(this.gameObject);
                     }
@@ -57,7 +57,7 @@ public class StoneManager : MonoBehaviour {
                 case 3:
                     if (!gmanager.isFlower) {
                         gmanager.GrowNature();
-                        SoundManager.Instance.PlayJumpSound();
+                        SoundManager.Instance.PlayPickSound();
                         SoundManager.Instance.PlayAchieveSound();
                         Destroy(this.gameObject);
                     }
