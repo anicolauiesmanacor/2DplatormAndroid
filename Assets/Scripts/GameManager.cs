@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public bool startGame = false;
+    public bool gameOver = false;
 
     public bool isGreen = false;
     public bool isBlue = false;
