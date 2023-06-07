@@ -5066,6 +5066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGame: 0
+  gameOver: 0
   isGreen: 0
   isBlue: 0
   isFlower: 0
@@ -17344,7 +17345,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34025e7752edcca4193c529c90735ea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 8300000, guid: b3fb04fd2a62ca7468c08560494e352e, type: 3}
+  pController: {fileID: 5408213541767164409}
+  backgroundMusicIntro: {fileID: 8300000, guid: e7daf2add0d9e024288c3533a4527bc0, type: 3}
+  musicTracks:
+  - {fileID: 8300000, guid: dc44d3b47a7134d47b2052d14cd173ac, type: 3}
+  - {fileID: 8300000, guid: 4f31a039c36a63449860ff9b302db1a5, type: 3}
+  - {fileID: 8300000, guid: 224a3f0059fc7d54fbd854b9410b65f9, type: 3}
+  - {fileID: 8300000, guid: 96117eabcce392449acaab47aa88e960, type: 3}
+  backgroundMusicEnd: {fileID: 8300000, guid: e7daf2add0d9e024288c3533a4527bc0, type: 3}
   jumpSound: {fileID: 8300000, guid: a34d4c7fee79d9149925600cd9701c55, type: 3}
   pickSound: {fileID: 8300000, guid: d8afbcc895778dc48bfa7436b91ac01f, type: 3}
   dieSound: {fileID: 8300000, guid: ac8dd657c78cd6d4689f3fa5b1368989, type: 3}
@@ -20704,7 +20712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6147081475396866475, guid: 0d79a1a61e029f14680f7106e6e37eeb, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6147081475396866475, guid: 0d79a1a61e029f14680f7106e6e37eeb, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.size
@@ -21210,6 +21218,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c1db009aa37fa94a847e2a0a19b61c1, type: 3}
+--- !u!114 &5408213541767164409 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5408213540438362928, guid: 1c1db009aa37fa94a847e2a0a19b61c1, type: 3}
+  m_PrefabInstance: {fileID: 5408213541767164408}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a55a53adf07d3c4e9e276cb82a380fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7641074726173885006 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9176347763393165026, guid: 705f3f4a2455fee42b5e5bec2edef499, type: 3}
