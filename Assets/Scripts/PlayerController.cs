@@ -147,17 +147,31 @@ public class PlayerController : MonoBehaviour {
 
     public void Move(InputAction.CallbackContext context) {
          if (gameManager.startGame) {
-            if (Application.isMobilePlatform && context.performed) {
-                horizontal = 1f;
-           
-            } else {
-                Debug.Log("Entra");
-                DebugText.text = "INFO: ENTRA";
-                horizontal = context.ReadValue<Vector2>().x;
-            }
-                
+            horizontal = context.ReadValue<Vector2>().x;
          }
             
+    }
+
+    public void MoveLeftBtn (InputAction.CallbackContext context) {
+         if (gameManager.startGame) {
+            if (context.performed){
+                horizontal = -1f;
+            }
+            if (context.canceled) {
+                horizontal = 0f;
+            }
+         }   
+    }
+
+    public void MoveRightBtn (InputAction.CallbackContext context) {
+         if (gameManager.startGame) {
+            if (context.performed){
+                horizontal = 1f;
+            }
+            if (context.canceled) {
+                horizontal = 0f;
+            }
+         }     
     }
 
     public void Jump(InputAction.CallbackContext context) {
