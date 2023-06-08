@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 
-public class PlayerController : MonoBehaviour{
+public class PlayerController : MonoBehaviour {
+    public Text DebugText;
+
     private GameManager gameManager;
     private Rigidbody2D rb;
     private Animator anim;
@@ -140,8 +146,18 @@ public class PlayerController : MonoBehaviour{
     }
 
     public void Move(InputAction.CallbackContext context) {
-         if (gameManager.startGame) 
-            horizontal = context.ReadValue<Vector2>().x;
+         if (gameManager.startGame) {
+            if (Application.isMobilePlatform && context.performed) {
+                horizontal = 1f;
+           
+            } else {
+                Debug.Log("Entra");
+                DebugText.text = "INFO: ENTRA";
+                horizontal = context.ReadValue<Vector2>().x;
+            }
+                
+         }
+            
     }
 
     public void Jump(InputAction.CallbackContext context) {
