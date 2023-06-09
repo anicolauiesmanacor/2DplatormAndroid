@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
     public LayerMask deathLayer;
 
     private float horizontal;
-    [SerializeField] private float speed;
+    [SerializeField] public float speed;
     [SerializeField] private float jump;
     private bool isFacingRight = true;
     public bool isJumping = false;
