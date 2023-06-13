@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.EnhancedTouch;
-using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
-using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 
 public class PlayerController : MonoBehaviour {
-    public Text DebugText;
+    public Text debugText;
+
+    private PlayerInput playerInput;
+
+    private bool pl_walkingL = false;
+    private bool pl_walkingR = false;
 
     private GameManager gameManager;
     private Rigidbody2D rb;
@@ -28,19 +30,21 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float jump;
     private bool isFacingRight = true;
     public bool isJumping = false;
-
-    private void Awake() {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-    }
-
+    
     public const int ST_IDLE = 0;
     public const int ST_WALK = 1;
     public const int ST_JUMP = 2;
     public const int ST_DIE = 3;
     public int state;
     public int prev_state;
+
+    private void Awake() {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        playerInput = GetComponent<PlayerInput>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
 
     void Start() {
         prev_state = state = ST_IDLE;
@@ -145,33 +149,32 @@ public class PlayerController : MonoBehaviour {
         transform.localScale = localScale;
     }
 
-    public void Move(InputAction.CallbackContext context) {
-         if (gameManager.startGame) {
-            horizontal = context.ReadValue<Vector2>().x;
-         }
-            
+     public void MovementL (InputAction.CallbackContext context) {
+        if (gameManager.startGame) {
+            if (context.performed) {
+                Debug.Log("MovementL");
+                debugText.text = "MovementL";
+                pl_walkingL = true;
+                horizontal = -1;
+            } else if (context.canceled) {
+                pl_walkingL = false;
+                horizontal = 0;
+            }
+        }
     }
 
-    public void MoveLeftBtn (InputAction.CallbackContext context) {
-         if (gameManager.startGame) {
-            if (context.performed){
-                horizontal = -1f;
+    public void MovementR (InputAction.CallbackContext context) {
+        if (gameManager.startGame) {
+            if (context.performed) {
+                Debug.Log("MovementR");
+                debugText.text = "MovementR";
+                pl_walkingR = true;
+                horizontal = 1;
+            } else if (context.canceled) {
+                pl_walkingR = false;
+                horizontal = 0;
             }
-            if (context.canceled) {
-                horizontal = 0f;
-            }
-         }   
-    }
-
-    public void MoveRightBtn (InputAction.CallbackContext context) {
-         if (gameManager.startGame) {
-            if (context.performed){
-                horizontal = 1f;
-            }
-            if (context.canceled) {
-                horizontal = 0f;
-            }
-         }     
+        }
     }
 
     public void Jump(InputAction.CallbackContext context) {

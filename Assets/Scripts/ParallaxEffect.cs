@@ -3,6 +3,7 @@ using UnityEngine;
 public class ParallaxEffect : MonoBehaviour
 {
     [SerializeField] private float parallaxSpeed; // Adjust this value to control the speed of the parallax effect
+    [SerializeField] private float xOffset;
 
     private Camera mainCamera;
     private float screenWidth;
@@ -18,6 +19,7 @@ public class ParallaxEffect : MonoBehaviour
         // Calculate the width of the sprites
         SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteWidth = spriteRenderer.bounds.size.x;
+        Debug.Log("width: " + spriteWidth);
 
         // Initialize the previous player X position
         previousPlayerX = player.position.x;
@@ -40,10 +42,12 @@ public class ParallaxEffect : MonoBehaviour
                 
                 // Wrap the sprite to the opposite side of the screen if it goes offscreen
                 if (playerDirection > 0 && child.position.x + spriteWidth < mainCamera.transform.position.x - screenWidth / 2f) {
-                    newPosition.x += spriteWidth * transform.childCount;
+                    Debug.Log("Spawn1");
+                    newPosition.x += (spriteWidth * transform.childCount) - xOffset;
                     child.position = newPosition;
-                } else if (playerDirection < 0 && child.position.x - spriteWidth > mainCamera.transform.position.x + screenWidth / 2f) {
-                    newPosition.x -= spriteWidth * transform.childCount;
+                } else if (playerDirection < 0 && child.position.x - spriteWidth - xOffset > mainCamera.transform.position.x + screenWidth / 2f) {
+                    Debug.Log("Spawn2");
+                    newPosition.x -= (spriteWidth * transform.childCount) - xOffset;;
                     child.position = newPosition;
                 }
             }
