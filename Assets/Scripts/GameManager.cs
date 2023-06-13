@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    [SerializeField] private GameObject fairy;
+
     public bool startGame = false;
     public bool gameOver = false;
 
@@ -58,6 +60,10 @@ public class GameManager : MonoBehaviour {
                 isFlower = true;
                 natureTransition = false;
             }
+        }
+         
+        if (isGreen && isBlue && isFlower && isCloud) {
+            fairy.GetChild[0].SetActive(true);
         }
     }
 
