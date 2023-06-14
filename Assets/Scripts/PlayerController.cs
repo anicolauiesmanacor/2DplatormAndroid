@@ -47,12 +47,13 @@ public class PlayerController : MonoBehaviour {
 
 
     void Start() {
+        PlayerDeath();
         prev_state = state = ST_IDLE;
         ChangeAnimatorState(0);
     }
 
     private void Update() {
-        if (gameManager.startGame) {
+        if (gameManager.startGame && !gameManager.isGameOver) {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
             if (!isFacingRight && horizontal > 0f) {
@@ -70,6 +71,11 @@ public class PlayerController : MonoBehaviour {
 
             UpdatePlayerAnimationState();
             PlayPlayerFX();
+        } else if (gameManager.isGameOver) {
+            prev_state = state = ST_IDLE;
+            ChangeAnimatorState(0);
+            horizontal = 0;
+            gameManager.startGame = gameManager.isGameOver = false;
         }
     }
 
@@ -92,7 +98,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void PlayerDeath() {
+    public void PlayerDeath() {
         spawnPS.Play();
         this.gameObject.SetActive(true);
         transform.position = respawnPoint.transform.position;

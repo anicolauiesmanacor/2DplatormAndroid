@@ -39,7 +39,7 @@ public class SoundManager : MonoBehaviour {
     }
 
     void Update() {
-        if (!gManager.gameOver) {
+        if (!gManager.isGameOver) {
             if (!gManager.startGame) {
                 if (!musicSource.isPlaying) {
                     musicSource.loop = false;

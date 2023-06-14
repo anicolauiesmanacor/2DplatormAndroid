@@ -32,7 +32,7 @@ public class StoneManager : MonoBehaviour {
                         gmanager.MakeGroundTransition();
                         SoundManager.Instance.PlayPickSound();
                         SoundManager.Instance.PlayAchieveSound();
-                        Destroy(this.gameObject);
+                        this.gameObject.SetActive(false);
                     }
                     break;
 
@@ -41,7 +41,7 @@ public class StoneManager : MonoBehaviour {
                         gmanager.MakeBlueSky();
                         SoundManager.Instance.PlayPickSound();
                         SoundManager.Instance.PlayAchieveSound();
-                        Destroy(this.gameObject);
+                        this.gameObject.SetActive(false);
                     }
                     break;
 
@@ -50,7 +50,7 @@ public class StoneManager : MonoBehaviour {
                         gmanager.GoAwayClouds();
                         SoundManager.Instance.PlayPickSound();
                         SoundManager.Instance.PlayAchieveSound();
-                        Destroy(this.gameObject);
+                        this.gameObject.SetActive(false);
                     }
                     break;
 
@@ -59,7 +59,7 @@ public class StoneManager : MonoBehaviour {
                         gmanager.GrowNature();
                         SoundManager.Instance.PlayPickSound();
                         SoundManager.Instance.PlayAchieveSound();
-                        Destroy(this.gameObject);
+                        this.gameObject.SetActive(false);
                     }
                     break;
             }

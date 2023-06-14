@@ -155,8 +155,8 @@ GameObject:
   - component: {fileID: 3381052061186621652}
   - component: {fileID: 3381052061186621651}
   - component: {fileID: 3381052061186621650}
-  - component: {fileID: 3381052061186621649}
   - component: {fileID: 5550175750364614932}
+  - component: {fileID: 7196984251402628789}
   m_Layer: 12
   m_Name: Fairy
   m_TagString: Untagged
@@ -556,21 +556,6 @@ PolygonCollider2D:
       - {x: 0.37, y: 1.3}
       - {x: 0.35999998, y: 1.27}
       - {x: 0.32999998, y: 1.28}
---- !u!114 &3381052061186621649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3381052061186621663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f411d5ba1070554db2fd545271366b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 3
-  amplitude: 0.5
-  speed: 1
 --- !u!95 &5550175750364614932
 Animator:
   serializedVersion: 5
@@ -591,3 +576,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &7196984251402628789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3381052061186621663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c591e0caa4a94498e5af09767418d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
